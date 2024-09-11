@@ -7,7 +7,8 @@ class Program{
         Console.WriteLine("Teste de mesa. Digite a opção desejada:" +
         "\n1) Primeiro teste (exercicio 1)" +
         "\n2) Segundo teste (exercicio 1)"+
-        "\n3) Terceiro teste (exercicio 1)");
+        "\n3) Terceiro teste (exercicio 1)"+
+        "\n4) Primeiro teste (exercicio 2)");
 
         //lê a entrada do teclado e a converte para int32
         int index = Convert.ToInt32(Console.ReadLine());
@@ -27,6 +28,10 @@ class Program{
             case 3:
                 Console.WriteLine("Resultado:");
                 TesteDeMesa1.Third();
+                break;
+            case 4:
+                Console.WriteLine("Resultado:");
+                TesteDeMesa2.First();
                 break;
         }
 
