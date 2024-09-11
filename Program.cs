@@ -39,8 +39,13 @@ class Program{
             case 5:
                 TesteDeMesa2.Second();
                 break;
+
             case 6: 
                 TesteDeMesa2.Third();
+                break;
+
+            case 7:
+                TesteDeMesa2.Fourth();
                 break;
         }
 
