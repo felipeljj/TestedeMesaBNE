@@ -5,10 +5,14 @@ class Program{
     static void Main(){
         //Cria um menu simples para navegação entre os testes.
         Console.WriteLine("Teste de mesa. Digite a opção desejada:" +
-        "\n1) Primeiro teste (exercicio 1)" +
-        "\n2) Segundo teste (exercicio 1)"+
-        "\n3) Terceiro teste (exercicio 1)"+
-        "\n4) Primeiro teste (exercicio 2)");
+        "\n--Exercicio 1 --"+
+        "\n1) Primeiro teste" +
+        "\n2) Segundo teste"+
+        "\n3) Terceiro teste"+
+        "\n--Exercicio 2--" +
+        "\n4) Primeiro teste"+
+        "\n5) Segundo teste"+
+        "\n6) Terceiro teste");
 
         //lê a entrada do teclado e a converte para int32
         int index = Convert.ToInt32(Console.ReadLine());
@@ -32,6 +36,9 @@ class Program{
             case 4:
                 Console.WriteLine("Resultado:");
                 TesteDeMesa2.First();
+                break;
+            case 5:
+                TesteDeMesa2.Second();
                 break;
         }
 
