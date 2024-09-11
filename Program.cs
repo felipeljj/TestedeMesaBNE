@@ -34,11 +34,13 @@ class Program{
                 TesteDeMesa1.Third();
                 break;
             case 4:
-                Console.WriteLine("Resultado:");
                 TesteDeMesa2.First();
                 break;
             case 5:
                 TesteDeMesa2.Second();
+                break;
+            case 6: 
+                TesteDeMesa2.Third();
                 break;
         }
 
