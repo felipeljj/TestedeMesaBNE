@@ -27,3 +27,4 @@ C:\Users\Latchuk\Desktop\Utilitarios\Trabalho\TestedeMesaBNE\obj\Debug\net8.0\re
 C:\Users\Latchuk\Desktop\Utilitarios\Trabalho\TestedeMesaBNE\obj\Debug\net8.0\code.pdb
 C:\Users\Latchuk\Desktop\Utilitarios\Trabalho\TestedeMesaBNE\obj\Debug\net8.0\code.genruntimeconfig.cache
 C:\Users\Latchuk\Desktop\Utilitarios\Trabalho\TestedeMesaBNE\obj\Debug\net8.0\ref\code.dll
+C:\code\obj\Debug\net8.0\code.sourcelink.json
