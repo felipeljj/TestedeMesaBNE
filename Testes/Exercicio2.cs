@@ -22,35 +22,36 @@ public class TesteDeMesa2{
 
         }
 
-    public static void Second(){
-
-        //Recebe os valores do usuário
+    public static void Second()
+    {
+        // Recebe os valores do usuário
         Console.Write("Digite o valor presente: ");
         float valorPresente = float.Parse(Console.ReadLine() ?? "0");
         Console.Write("Digite a taxa de juros (sem %): ");
-        float taxaJuros = float.Parse(Console.ReadLine() ?? "0")/100;
+        float taxaJuros = float.Parse(Console.ReadLine() ?? "0") / 100;
         Console.Write("Digite o periodo de investimento em meses: ");
         int periodoMes = int.Parse(Console.ReadLine() ?? "0");
+        
         double Rendimento = 0;
         double rendimentoLiquido = 0;
         double rendaAcumulada = valorPresente;
 
+        // Cabeçalho da tabela
+        Console.WriteLine();
+        Console.WriteLine($"{"Mês",-5}{"Taxa Juros",-15}{"Rendimento",-15}{"Rend. Liquido",-15}{"Renda Acumulada",-20}");
+        Console.WriteLine(new string('-', 70));
 
-        //Calcula o rendimento para cada mês e o rendimento acumulado.
-    
-        Console.WriteLine("--/Mês/--/Taxa Juros/--/Rendimento/--/Rend. Liquido/--/Renda Acumulada/--");
-        for(int i = 1; i <= periodoMes; i++){
-            
-            Rendimento = valorPresente * Math.Pow(taxaJuros+1, i);
+        // Calcula o rendimento para cada mês e o rendimento acumulado.
+        for (int i = 1; i <= periodoMes; i++)
+        {
+            Rendimento = valorPresente * Math.Pow(taxaJuros + 1, i);
             rendimentoLiquido = Rendimento - valorPresente;
             rendaAcumulada += rendimentoLiquido;
 
-            Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine($"--/ {i} /----/{taxaJuros*100}%/----/{Rendimento:C2}/----/{rendimentoLiquido:C2}/-----/{rendaAcumulada:C2}/-- ");
-
+            Console.WriteLine($"{i,-5}{taxaJuros * 100, -15:F2}%{Rendimento, -15:C2}{rendimentoLiquido, -15:C2}{rendaAcumulada, -20:C2}");
         }
-
     }
+
 
     public static void Third(){
         //Recebe os valores do usuário

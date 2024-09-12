@@ -70,7 +70,6 @@ public class TesteDeMesa1{
 
         int[] v = new int[7];
 
-        //Agora, atribui um valor ao indice 3, conforme pedido no exercicio
 
         while(b<a){
             v[b] = b+a;
@@ -82,13 +81,11 @@ public class TesteDeMesa1{
         for(int i = 0; i<7; i++){
             
             Console.Write($"v[{i}] = {v[i]}");
-
-            Console.Write("| ");
-            if(b<a){
-                Console.WriteLine("VERDADEIRO");
+            if(v[i]<a){
+                Console.WriteLine("| FALSO");
             }
             else {
-                Console.WriteLine("FALSO");
+                Console.WriteLine("| VERDADEIRO");
             }
         }
     }

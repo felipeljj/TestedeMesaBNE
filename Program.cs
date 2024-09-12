@@ -27,22 +27,20 @@ class Program{
         //Define que código executar a depender da entrada.
         switch(index){
             case 1:
-                Console.WriteLine("Resultado:");
                 TesteDeMesa1.First();
                 break;
 
             case 2:
-                Console.WriteLine("Resultado:");
                 TesteDeMesa1.Second();
                 break;
 
             case 3:
-                Console.WriteLine("Resultado:");
                 TesteDeMesa1.Third();
                 break;
             case 4:
                 TesteDeMesa2.First();
                 break;
+
             case 5:
                 TesteDeMesa2.Second();
                 break;

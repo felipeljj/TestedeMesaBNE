@@ -109,7 +109,7 @@ namespace calculadoraInvestimentos{
                 }
 
                 // Exibe os valores formatados
-                Console.WriteLine($"| {valorPresente,-16:C2} | {taxaJuros * 100,-12:P0} | {rendimento,-12:C2} | {i,-14} | {(i == 5 ? resgate : 0),-8:C2} | {saldoLiquido,-13:C2} |");
+                Console.WriteLine($"| {valorPresente,-16:C2} | {taxaJuros ,-12:P0} | {rendimento,-12:C2} | {i,-14} | {(i == 5 ? resgate : 0),-8:C2} | {saldoLiquido,-13:C2} |");
             }
             Console.WriteLine("-------------------------------------------------------------------");
         }
