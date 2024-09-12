@@ -1,4 +1,5 @@
 ﻿using System;
+using calculadoraInvestimentos;
 
 class Program{
 
@@ -15,7 +16,8 @@ class Program{
         "\n6) Terceiro teste"+
         "\n7) Quarto teste"+
         "\n8) Quinto teste"+
-        "\n--- Exercicio 3 ---");
+        "\n--- Exercicio 3 ---"+
+        "\n9) Primeiro teste");
 
         //lê a entrada do teclado e a converte para int32
         int index = Convert.ToInt32(Console.ReadLine());
@@ -54,6 +56,19 @@ class Program{
             case 8:
                 TesteDeMesa2.Fifth();
                 break;
+
+            case 9:
+                TesteDeMesa3.First();
+                break;
+
+            case 10:
+                TesteDeMesa3POO.Second();
+                break;
+
+            case 11:
+                TesteDeMesa3POO.Third();
+                break;
+
         }
 
     }
