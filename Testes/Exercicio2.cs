@@ -70,66 +70,103 @@ public class TesteDeMesa2{
 
     }
 
-    public static void Fourth(){
-       //Recebe os valores do usuário
+    public static void Fourth()
+    {
+        //Pergunta e recebe os valores do usuário
         Console.Write("Digite o valor presente: ");
         double valorPresente = float.Parse(Console.ReadLine() ?? "0");
         Console.Write("Digite a taxa de juros (sem %): ");
-        float taxaJuros = float.Parse(Console.ReadLine() ?? "0")/100;
-        Console.Write("Digite o periodo de investimento em meses: ");
+        float taxaJuros = float.Parse(Console.ReadLine() ?? "0") / 100;
+        Console.Write("Digite o período de investimento em meses: ");
         int periodoMes = int.Parse(Console.ReadLine() ?? "0");
         Console.Write("Gostaria de realizar um resgate? (Y/N): ");
-        int flagResgate = 0;
+        
+        //Declaração de variáveis úteis
+        bool flagResgate = false;
         int valorResgate = 0;
         int mesResgate = 0;
         string input = Console.ReadLine() ?? "n";
-        if (input.ToUpper() == "Y"){
+        double Rendimento = 0;
+        double rendimentoLiquido = 0;
+        double rendaAcumulada = valorPresente;
+        double saldo = -1;
+        double contador = 0;
+        int index = 1; // Controla o índice dos meses (reseta após o resgate)
+        bool resgateEfetuado = false; // Flag para indicar que o resgate foi feito
+
+        //Logica para simular o resgate, se requisitado
+        if (input.ToUpper() == "Y")
+        {
             Console.Write("Em que mês você quer fazer o resgate?: ");
             mesResgate = int.Parse(Console.ReadLine() ?? "0");
             Console.Write("Qual o valor do resgate?: ");
             valorResgate = int.Parse(Console.ReadLine() ?? "0");
-            flagResgate=1;
+            flagResgate = true;
         }
-        else{
+        else
+        {
             Console.WriteLine("Você escolheu não fazer resgate.");
-            flagResgate = 0;
+            flagResgate = false;
         }
-        double Rendimento = 0;
-        double rendimentoLiquido = 0;
-        double rendaAcumulada = valorPresente;
-        double saldo = 0;
 
+        // Cabeçalho da tabela para organização
+        Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("| Valor Presente | Periodo a.m | Taxa Juros | Rendimento    | Rend. Liquido | Resgate     | Renda Acumulada | Saldo      |");
+        Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
 
-        //Calcula o rendimento para cada mês e o rendimento acumulado.
-    
-        Console.WriteLine("--/Valor Presente/----/Mês/--/Taxa Juros/--/Rendimento/-----/Rend. Liquido/---/Resgate/---/Renda Acumulada/----/Saldo/--");
-        for(int i = 1; i <= periodoMes; i++){
-            
-            Rendimento = valorPresente * Math.Pow(taxaJuros+1, i);
-            double resgatado;
-            if (flagResgate == 1 && i == mesResgate){
+        //Loop para iterar a cada mês e realizar o teste de mesa
+
+        for (int i = 1; i <= periodoMes; i++)
+        {
+            double resgatado = 0;
+
+            if (flagResgate == true && i == mesResgate)
+            {
+                // Resgate no mês escolhido
+                Rendimento = valorPresente * Math.Pow(taxaJuros + 1, contador);
+                rendimentoLiquido = Rendimento - valorPresente;
                 resgatado = valorResgate;
-                rendaAcumulada = valorPresente+rendimentoLiquido-resgatado;
-                valorPresente = rendaAcumulada;
-                rendimentoLiquido = Rendimento - valorPresente;
-                saldo = Rendimento-resgatado;
-
+                saldo = Rendimento - resgatado;
+                // Renda acumulada após o resgate (será atualizada na próxima iteração)
+                rendaAcumulada = valorPresente + rendimentoLiquido - resgatado;
+                // Marca que o resgate foi efetuado, mas o valorPresente será atualizado apenas na próxima iteração
+                resgateEfetuado = true;
+                index = mesResgate; 
             }
-            else{
-                Rendimento = valorPresente * Math.Pow(taxaJuros+1, i);
-                resgatado = 0;
+            else
+            {
+                // Calcula os valores normais
+                Rendimento = valorPresente * Math.Pow(taxaJuros + 1, index);
                 rendimentoLiquido = Rendimento - valorPresente;
-                rendaAcumulada = valorPresente+rendimentoLiquido;
                 saldo = Rendimento;
+                contador++;
             }
+            // Exibe os valores formatados em uma tabela para organização
+            Console.WriteLine($"| {valorPresente,14:C2} | {index,10} | {taxaJuros * 100,10}% | {Rendimento,12:C2} | {rendimentoLiquido,13:C2} | {resgatado,10:C2} | {rendaAcumulada,15:C2} | {saldo,10:C2} |");
             
-            Console.WriteLine($"--/{valorPresente:C2}/----/ {i} /------/{taxaJuros*100}%/---------/{Rendimento:C2}/------/{rendimentoLiquido:C2}/------/{resgatado:C2}/----{rendaAcumulada:C2}/----/{saldo:C2}/----");
-
+            // Se o resgate foi feito, atualiza o valorPresente na próxima iteração
+            if (resgateEfetuado)
+            {
+                valorPresente = rendaAcumulada;
+                resgateEfetuado = false; // Reset da flag
+            }
+            // Controla o índice (reseta para 1 após o mês de resgate)
+            if (index == mesResgate)
+            {
+                index = 1;
+            }
+            else
+            {
+                index++;
+            }
         }
-
-
+        Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
+    }
+    
+    public static void Fifth(){
 
 
     }
+
 }
 
