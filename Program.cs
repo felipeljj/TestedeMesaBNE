@@ -17,7 +17,9 @@ class Program{
         "\n7) Quarto teste"+
         "\n8) Quinto teste"+
         "\n--- Exercicio 3 ---"+
-        "\n9) Primeiro teste");
+        "\n9) Primeiro teste"+
+        "\n10) Segundo teste"+
+        "\n11) Terceiro teste");
 
         //lê a entrada do teclado e a converte para int32
         int index = Convert.ToInt32(Console.ReadLine());
