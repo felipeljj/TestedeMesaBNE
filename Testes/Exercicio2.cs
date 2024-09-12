@@ -1,5 +1,5 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
+
 
 
 public class TesteDeMesa2{
@@ -74,7 +74,7 @@ public class TesteDeMesa2{
     {
         //Pergunta e recebe os valores do usuário
         Console.Write("Digite o valor presente: ");
-        double valorPresente = float.Parse(Console.ReadLine() ?? "0");
+        double valorPresente = Convert.ToDouble(Console.ReadLine());
         Console.Write("Digite a taxa de juros (sem %): ");
         float taxaJuros = float.Parse(Console.ReadLine() ?? "0") / 100;
         Console.Write("Digite o período de investimento em meses: ");
@@ -162,10 +162,36 @@ public class TesteDeMesa2{
         }
         Console.WriteLine("--------------------------------------------------------------------------------------------------------------------");
     }
-    
-    public static void Fifth(){
+    public static void Fifth()
+    {
+        
+        // Recebimento de dados do usuário
+        System.Console.Write("Digite o valor inicial (presente): ");
+        double valorPresente = Convert.ToDouble(Console.ReadLine());
 
+        System.Console.Write("Digite a taxa de juros (sem %): ");
+        double TaxaJuros = (Convert.ToDouble(Console.ReadLine())/100);
 
+        System.Console.Write("Digite o valor futuro desejado: ");
+        double valorFuturo = Convert.ToDouble(Console.ReadLine());
+
+        // Cálculo do rendimento (usado para exibir a diferença entre o valor presente e o futuro)
+        double valorRendimento = valorFuturo - valorPresente;
+
+        // Cálculo do período necessário (em meses)
+        double mesesNecessarios = Math.Log(valorFuturo / valorPresente) / Math.Log(1 + TaxaJuros);
+        //logaritmo é necessario para descer o tempo do expoente, e calcular corretamente.
+
+        // Converte meses para anos
+        double anosNecessarios = mesesNecessarios / 12;
+
+        // Exibe os resultados
+        System.Console.WriteLine($"\nValor presente: {valorPresente:C2}");
+        System.Console.WriteLine($"Juros mensais: {TaxaJuros * 100}%");
+        System.Console.WriteLine($"Valor futuro: {valorFuturo:C2}");
+        System.Console.WriteLine($"Tempo necessário em meses: {Math.Ceiling(mesesNecessarios)} meses");
+        System.Console.WriteLine($"Tempo necessário em anos: {anosNecessarios:F2} anos");
+        System.Console.WriteLine($"Rendimento total: {valorRendimento:C2}");
     }
 
 }

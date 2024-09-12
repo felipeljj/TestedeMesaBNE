@@ -13,7 +13,9 @@ class Program{
         "\n4) Primeiro teste"+
         "\n5) Segundo teste"+
         "\n6) Terceiro teste"+
-        "\n7) Quarto teste");
+        "\n7) Quarto teste"+
+        "\n8) Quinto teste"+
+        "\n--- Exercicio 3 ---");
 
         //lê a entrada do teclado e a converte para int32
         int index = Convert.ToInt32(Console.ReadLine());
@@ -48,9 +50,11 @@ class Program{
             case 7:
                 TesteDeMesa2.Fourth();
                 break;
+
+            case 8:
+                TesteDeMesa2.Fifth();
+                break;
         }
-
-
 
     }
 }
